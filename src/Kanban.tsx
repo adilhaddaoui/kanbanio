@@ -6,7 +6,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { TouchBackend } from 'react-dnd-touch-backend'
 import { toDate, compareAsc, getUnixTime } from 'date-fns'
 
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading, Link, Text } from '@chakra-ui/react'
 import Column from './components/Columns'
 import Card from './components/Card'
 import MobileDragPreview from './components/MobileDragPreview'
@@ -18,6 +18,7 @@ import {
 	BiCalendarCheck,
 	BiCalendarX,
 } from 'react-icons/bi'
+import { AiFillGithub } from 'react-icons/ai'
 
 import eventsData from './events-data.json'
 
@@ -186,9 +187,18 @@ const Kanban: React.FC = (): React.ReactElement => {
 
 	return (
 		<Flex direction="column" p="22px">
-			<Heading as="h1" fontSize="2xl" color="gray.600">
-				Kanban
-			</Heading>
+			<Flex align="center">
+				<Heading as="h1" fontSize="2xl" color="gray.600">
+					Kanban
+				</Heading>
+				<Link
+					href="https://github.com/adilhaddaoui/kanbanio"
+					target="_blank"
+					ml="12px"
+				>
+					<AiFillGithub size={28} />
+				</Link>
+			</Flex>
 
 			<DndProvider backend={isTouchDevice() ? TouchBackend : HTML5Backend}>
 				<Flex justify="space-between" mt="20px" overflowX="auto">
